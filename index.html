@@ -8,28 +8,33 @@
     <title>Navbar</title>
 </head>
 <body>
-    <nav class="navbar">
-        <h1 class="navbar-title">Your Title</h1>
-        <div class="navbar-toggle" id="navbarToggle">
+    <!-- Navigation Bar -->
+    <nav class="navbar-active" id="navbar">
+        <div class="logo-placeholder">Logo</div> <!-- Placeholder for the logo -->
+        <h1 class="navbar-title">Your Title</h1> <!-- Main title -->
+        <div class="navbar-toggle" id="navbarToggle"> <!-- Toggle button for mobile -->
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
     </nav>
 
-    <div class="navbar-links" id="navbarLinks">
-        <ul>
-            <li><a href="#" class="href-option">Home</a></li>
-            <li><a href="#" class="href-option">About</a></li>
-            <li><a href="#" class="href-option">Services</a></li>
-            <li><a href="#" class="href-option">Contact</a></li>
-        </ul>
+    <!-- Overlay Menu -->
+    <div class="overlay" id="overlay">
+        <div class="overlay-content">
+            <ul>
+                <li><a href="#" class="href-option">Home</a></li> <!-- Menu option: Home -->
+                <li><a href="#" class="href-option">About</a></li> <!-- Menu option: About -->
+                <li><a href="#" class="href-option">Services</a></li> <!-- Menu option: Services -->
+                <li><a href="#" class="href-option">Contact</a></li> <!-- Menu option: Contact -->
+            </ul>
+        </div>
     </div>
 
     <div class="content">
         <!-- Your page content here -->
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- JavaScript script -->
 </body>
 </html>

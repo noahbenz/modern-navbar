@@ -2,97 +2,163 @@
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
+    list-style: none; /* Remove default list bullets */
 }
 
-/* Navbar styles */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    position: relative;
-    background-color: #333;
-    color: white;
-    transition: background-color 0.3s;
+/* Global font for the whole document */
+body {
     font-family: 'Glober', sans-serif;
 }
 
-.navbar-title {
-    font-size: 1.5rem;
-    font-weight: 300;
+/* Logo placeholder */
+.logo-placeholder {
+    width: 60px; /* Set the width for your logo */
+    height: 30px; /* Set the height for your logo */
+    background-color: #f2f2f2; /* Placeholder background color */
 }
 
+/* Navbar styles */
+.navbar, .navbar-active {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    position: relative;
+    background-color: #333;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+/* Title styling */
+.navbar-title {
+    flex: 1; /* Occupy available space in the flex container */
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    color: rgb(136, 138, 139);
+}
+
+/* Title hover effect */
+.navbar-title:hover{
+    color: rgb(198, 192, 192);
+    transform: 0.2s;
+}
+
+/* Navbar toggle styling */
 .navbar-toggle {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     height: 20px;
     transition: transform 0.3s;
+    z-index: 10;
 }
 
+/* Bar styling */
 .bar {
-    width: 25px;
-    height: 3px;
+    width: 30px;
+    height: 30px;
     background-color: white;
     margin: 3px 0;
     transition: transform 0.3s;
+    padding: 1px;
 }
 
-.navbar-toggle:hover .bar:nth-child(1) {
-    transform: rotate(90deg) translate(4px, -4px);
+/* Rotated toggle styling */
+.navbar-toggle.rotated {
+    transform: rotate(90deg);
+    transform-origin: center;
 }
 
-.navbar-toggle:hover .bar:nth-child(2) {
+/* Overlay styling */
+.overlay {
+    left: 40%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    transition: left 0.3s, opacity 0.3s;
     opacity: 0;
 }
 
-.navbar-toggle:hover .bar:nth-child(3) {
-    transform: rotate(90deg) translate(4px, 4px);
+/* Active overlay styling */
+.overlay.active {
+    left: 0;
+    opacity: 1;
 }
 
-.navbar-links {
-    position: fixed;
+/* Overlay content styling */
+.overlay-content {
+    position: absolute;
     top: 0;
-    right: -300px;
+    bottom: 0;
+    right: 0;
     width: 250px;
-    height: 100vh;
+    padding-top: 60px;
     background-color: #333;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 60px;
-    transition: right 0.3s;
 }
 
-.navbar-links ul {
-    list-style: none;
+/* List and list item styling */
+ul, li {
     width: 100%;
-    padding: 0;
 }
 
-.navbar-links li {
-    margin-bottom: 15px;
-    text-align: center;
+/* Remove border from the last list item link */
+li:last-child a {
+    border-bottom: none;
 }
 
+/* Add padding to the first list item link */
+li:first-child a {
+    padding-top: 1rem;
+}
+
+/* Styling for link options */
 .href-option {
-    color: #ccc;
+    color: white;
     text-decoration: none;
-    transition: color 0.3s;
+    position: relative;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid white;
+    text-align: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    font-size: 1rem; /* Slightly larger font size */
+    transition: color 0.3s, font-size 0.3s; /* Add transitions for color and font size */
 }
 
+/* Hover effect for link options */
 .href-option:hover {
-    color: #f0f0f0;
+    color: #f2f2f2; /* Lighter white color on hover */
+    font-size: 1.05rem; /* Slightly larger font size on hover */
+}
+
+/* Hover effect for line under link options */
+.href-option:hover::after {
+    content: "";
+    position: absolute;
+    bottom: -3px; /* Distance from bottom */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #f2f2f2; /* Light white line color */
+    transition: background-color 0.5s; /* Transition for line color */
 }
 
 /* Media query for smaller screens */
+/* Media query for smaller screens */
 @media (max-width: 768px) {
-    .navbar-title {
+    /* Remove or comment out the following line to keep the title displayed */
+    /* .navbar-title {
         display: none;
-    }
+    } */
 
     .navbar-toggle {
         display: flex;
@@ -100,18 +166,6 @@ body, h1, h2, h3, p, ul, li {
 
     .navbar-links.active {
         right: 0;
-    }
-
-    .navbar-toggle.active .bar:nth-child(1) {
-        transform: rotate(90deg) translate(4px, -4px);
-    }
-
-    .navbar-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .navbar-toggle.active .bar:nth-child(3) {
-        transform: rotate(90deg) translate(4px, 4px);
     }
 
     .content {
