@@ -1,0 +1,120 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    background-color: #333;
+    color: white;
+    transition: background-color 0.3s;
+    font-family: 'Glober', sans-serif;
+}
+
+.navbar-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.navbar-toggle {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 20px;
+    transition: transform 0.3s;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: transform 0.3s;
+}
+
+.navbar-toggle:hover .bar:nth-child(1) {
+    transform: rotate(90deg) translate(4px, -4px);
+}
+
+.navbar-toggle:hover .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggle:hover .bar:nth-child(3) {
+    transform: rotate(90deg) translate(4px, 4px);
+}
+
+.navbar-links {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 60px;
+    transition: right 0.3s;
+}
+
+.navbar-links ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.navbar-links li {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.href-option {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.href-option:hover {
+    color: #f0f0f0;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .navbar-title {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-links.active {
+        right: 0;
+    }
+
+    .navbar-toggle.active .bar:nth-child(1) {
+        transform: rotate(90deg) translate(4px, -4px);
+    }
+
+    .navbar-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggle.active .bar:nth-child(3) {
+        transform: rotate(90deg) translate(4px, 4px);
+    }
+
+    .content {
+        padding-top: 80px; /* To prevent content from being hidden behind the fixed navigation */
+    }
+}
